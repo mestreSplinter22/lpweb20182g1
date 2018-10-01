@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { OrcamentosService } from '../orcamentos.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class CadastrarOrcamentoComponent implements OnInit {
 
   adicionarMobilia() {
     this.mobilias.push({
+      id: this.mobilias.length +1,
       tipo: this.mobilia_tipo,
       puxador: this.mobilia_puxador,
       pintura: this.mobilia_pintura,
@@ -53,6 +54,11 @@ export class CadastrarOrcamentoComponent implements OnInit {
     this.mostrar_mensagem = true;
     this.mobilias = [];
     this.total_orcamento = 0.0;
+  }
+  excluir(mobilia) {
+    console.log(this.mobilias);
+    this.mobilias.splice(this.mobilias.findIndex(n => n.id === mobilia.id),1);
+    console.log(this.mobilias);
   }
 
   mostrar_total() {

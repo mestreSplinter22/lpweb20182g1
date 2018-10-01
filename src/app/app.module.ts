@@ -1,7 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {StorageServiceModule} from 'angular-webstorage-service';
 
 import { AppComponent } from './app.component';
 import { Route } from '@angular/compiler/src/core';
@@ -25,7 +26,8 @@ const rotas: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(rotas)
+    RouterModule.forRoot(rotas),
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

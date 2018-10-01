@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject,Injectable } from '@angular/core';
+//import {SESSION_STORAGE, StorageService} from 'angular-webstorage-service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,15 @@ export class OrcamentosService {
       }
     ]
   }];
-  constructor() { }
+  constructor(){}//@Inject (SESSION_STORAGE) private storage : StorageService) { }
+
   salvar(orcamento) {
     orcamento.id = this.orcamentos.length + 1;
-    this.orcamentos.push(orcamento);
+    localStorage.setItem(orcamento.id , JSON.stringify(orcamento));//passando o id do orcamento como key 
+                                                                  //e passando o objeto como "string" como valor
+    let item = JSON.parse(localStorage.getItem(orcamento.id)); // coversao para JSON
+    console.log(item);
+   // this.orcamentos.push(orcamento);
   }
   calcular(orcamento) {
     let somatorio = 0;
